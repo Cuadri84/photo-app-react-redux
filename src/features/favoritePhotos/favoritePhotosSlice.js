@@ -1,28 +1,47 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const getPhotos = createAsyncThunk("photos/getPhotos", async () => {
-  const response = await fetch("https://picsum.photos/v2/list?page=6&limit=12");
-  const formatResponse = await response.json();
-  return formatResponse;
+const initialState = {
+  favoritePhotos: JSON.parse(localStorage.getItem("photos")) || [],
+};
+
+const setLocalStorage = (photo) => {
+  localStorage.setItem("photos", JSON.stringify(photo));
+};
+
+const favoritePhotoSlice = createSlice({
+  name: "favoritePhotos",
+  initialState,
+  reducers: {
+    addPhoto: (state, action) => {
+      if (
+        [...state.favoritePhotos].every((item) => item.id !== action.payload.id)
+      ) {
+        state.favoritePhotos = [...state.favoritePhotos, action.payload];
+        setLocalStorage(state.favoritePhotos);
+      }
+    },
+
+    deletePhoto: (state, action) => {
+      state.favoritePhotos = state.favoritePhotos.filter(
+        (item) => item.id !== action.payload
+      );
+      setLocalStorage(state.favoritePhotos);
+    },
+
+    editDescription: (state, action) => {
+      state.favoritePhotos = state.favoritePhotos.map((item) => {
+        if (item.id === action.payload.id) {
+          item.description = action.payload.description;
+        }
+
+        return item;
+      });
+
+      setLocalStorage(state.favoritePhotos);
+    },
+  },
 });
 
-export const favoritePhotosSlice = createSlice({
-  name: "favorite",
-  initialState: {
-    photos: [],
-    isLoading: false,
-  },
-  extraReducers: {
-    [getPhotos.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getPhotos.fulfilled]: (state, action) => {
-      state.photos = action.payload;
-      state.isLoading = false;
-    },
-    [getPhotos.rejected]: (state) => {
-      state.isLoading = false;
-    },
-  },
-});
-export default favoritePhotosSlice.reducer;
+export const { addPhoto, deletePhoto, editDescription } =
+  favoritePhotoSlice.actions;
+export default favoritePhotoSlice.reducer;
