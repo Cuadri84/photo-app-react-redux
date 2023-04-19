@@ -23,7 +23,7 @@ const favoritePhotoSlice = createSlice({
 
     deletePhoto: (state, action) => {
       state.favoritePhotos = state.favoritePhotos.filter(
-        (item) => item.id !== action.payload
+        (item) => item.id !== action.payload.id
       );
       setLocalStorage(state.favoritePhotos);
     },

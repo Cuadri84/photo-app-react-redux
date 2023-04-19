@@ -32,13 +32,11 @@ export const Search = () => {
                   dispatch(
                     addPhoto({
                       id: photo.id,
-                      name: photo.name,
-                      description: photo.description,
-                      src: photo.src,
+                      description: photo.alt_description,
+                      src: photo.urls.regular,
                       likes: photo.likes,
                       width: photo.width,
                       height: photo.height,
-                      donwload: photo.donwload,
                       date: date,
                     })
                   )
