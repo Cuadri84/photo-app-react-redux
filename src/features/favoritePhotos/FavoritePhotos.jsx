@@ -7,8 +7,6 @@ export const FavoritePhotos = () => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorite.favoritePhotos);
 
-  //download all the favorite images in  mount, not qhen clicked
-
   const donwloadImage = (URL, description) => {
     saveAs(URL, description);
   };
@@ -22,7 +20,7 @@ export const FavoritePhotos = () => {
             <button onClick={() => dispatch(deletePhoto({ id: photo.id }))}>
               DELETE
             </button>
-            <button onClick={donwloadImage(photo.src, photo.description)}>
+            <button onClick={() => donwloadImage(photo.src, photo.description)}>
               Download
             </button>
           </div>
