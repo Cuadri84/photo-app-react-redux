@@ -12,7 +12,7 @@ export const Photo = (photo) => {
   return (
     <div>
       <img src={photo.src} alt={photo.description} />
-      <h1>{photo.description}</h1>
+      {photo.description !== null ? <h1>{photo.description}</h1> : <h1></h1>}
       <h3>W {photo.width}</h3>
       <h3>H {photo.height}</h3>
       <h3>Likes {photo.likes}</h3>
