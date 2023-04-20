@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { saveAs } from "file-saver";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos } from "./SearchSlice";
 import { addPhoto } from "../favoritePhotos/favoritePhotosSlice";
@@ -9,6 +10,9 @@ export const Search = () => {
   const photos = useSelector((state) => state.search.photos);
 
   const date = new Date().toLocaleString();
+  const donwloadImage = (URL, description) => {
+    saveAs(URL, description);
+  };
 
   useEffect(() => {
     dispatch(getPhotos());
@@ -26,7 +30,7 @@ export const Search = () => {
                 src={photo.urls.regular}
                 alt={photo.alt_description}
               ></img>
-
+              <h1>{photo.alt_description}</h1>
               <button
                 onClick={() =>
                   dispatch(
@@ -43,6 +47,13 @@ export const Search = () => {
                 }
               >
                 ADD
+              </button>
+              <button
+                onClick={() =>
+                  donwloadImage(photo.urls.regular, photo.alt_description)
+                }
+              >
+                Download
               </button>
             </div>
           ))}
