@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { saveAs } from "file-saver";
 import { useDispatch } from "react-redux";
 import { deletePhoto } from "../features/favoritePhotos/favoritePhotosSlice";
+import { PhotoModal } from "./PhotoModal";
 
 export const FavoritePhoto = (photo) => {
   const donwloadImage = (URL, description) => {
@@ -13,11 +14,29 @@ export const FavoritePhoto = (photo) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <div>
-      <img src={photo.src} alt={photo.description} height="250" width="200" />
+      <img
+        src={photo.src}
+        alt={photo.description}
+        height="250"
+        width="200"
+        onClick={() => setOpenModal(true)}
+      />
+
+      {openModal ? (
+        <div>
+          <p onClick={() => setOpenModal(false)}>X</p>
+          <PhotoModal {...photo} />
+        </div>
+      ) : null}
+
       {photo.description !== null ? (
-        <h1>{capitalizeFirst(photo.description)}</h1>
+        <h1 onClick={() => setOpenModal(true)}>
+          {capitalizeFirst(photo.description)}
+        </h1>
       ) : (
         <br />
       )}
