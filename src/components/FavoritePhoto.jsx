@@ -3,7 +3,7 @@ import { saveAs } from "file-saver";
 import { useDispatch } from "react-redux";
 import { deletePhoto } from "../features/favoritePhotos/favoritePhotosSlice";
 
-export const Photo = (photo) => {
+export const FavoritePhoto = (photo) => {
   const donwloadImage = (URL, description) => {
     saveAs(URL, description);
   };

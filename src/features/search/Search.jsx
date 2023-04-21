@@ -8,8 +8,8 @@ import { addPhoto } from "../favoritePhotos/favoritePhotosSlice";
 export const Search = () => {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.search.photos);
-
   const date = new Date().toLocaleString();
+
   const donwloadImage = (URL, description) => {
     saveAs(URL, description);
   };
