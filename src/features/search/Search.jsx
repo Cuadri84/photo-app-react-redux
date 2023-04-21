@@ -24,11 +24,13 @@ export const Search = () => {
       ) : (
         <ul>
           {photos.map((photo) => (
-            <div>
+            <div key={photo.id}>
               <img
                 key={photo.id}
                 src={photo.urls.regular}
                 alt={photo.alt_description}
+                height="250"
+                width="200"
               ></img>
               <h1>{photo.alt_description}</h1>
               <button
