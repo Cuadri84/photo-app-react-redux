@@ -11,7 +11,6 @@ export const PhotoModal = (photo) => {
 
   const [newDescription, setNewDescription] = useState(photo.description);
   const handleChange = ({ target }) => {
-    console.log(target.value);
     setNewDescription(target.value);
   };
 
