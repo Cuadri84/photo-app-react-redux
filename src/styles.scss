@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Poppins";
+}
+header {
+  width: 100%;
+  padding-bottom: 15px;
+  display: flex;
+  & #photoApp {
+    color: #75099b;
+    font-weight: 400;
+  }
+  & #myPhotos {
+    color: #0e71cc;
+    font-weight: 400;
+  }
+  & #goBackFav {
+    color: #a39898;
+    text-decoration: none;
+    font-size: small;
+  }
+}
+
+//BOTON ORDER QUE HAY QUE METER EN EL HEADER Y CREARLO EN SU COMPONENTE
+#order {
+  color: #a39898;
+  text-decoration: none;
+  font-size: small;
+  border: none;
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  padding-right: 25px;
+  background-image: url(./assets/down-arrow.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 15px;
+  & option {
+    font-size: 10px;
+  }
+}
+
+//SEARCH FAVORITES QUE HAY QUE CREAR COMPONENTE COMÚN PARA LOS DOS SEARCHS
+
+#searchFilter {
+  height: 30px;
+  background-color: #e7e7e7;
+  width: 60%;
+  text-indent: 2%;
+  border-radius: 25px;
+  & div {
+    width: 75%;
+  }
+}
+#searchIcon {
+  color: #bdb5b5;
+  padding-top: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+//Favorite photo
+.imgAndButtons {
+  position: relative;
+  & img {
+    border-radius: 30px;
+    width: 150px;
+    height: 150px;
+  }
+  & div {
+    position: absolute;
+    width: 50px;
+    bottom: 10px;
+    left: 90px;
+  }
+}
+
+#buttons {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}

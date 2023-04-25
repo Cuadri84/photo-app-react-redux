@@ -33,24 +33,25 @@ export const FavoritePhotos = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="searchFilter">
         <TextField
           name="search"
           placeholder="Search Images..."
           variant="standard"
+          InputProps={{ disableUnderline: true }}
         />
-        <button type="submit">
+        <button type="submit" id="searchIcon">
           <SearchIcon />
         </button>
       </form>
-      <select onChange={sortByH}>
+      <select onChange={sortByH} id="order">
         <option selected disabled={true}>
-          Order by
+          ORDER BY
         </option>
-        <option>width</option>
-        <option>height</option>
-        <option>likes</option>
-        <option>date</option>
+        <option>WIDTH</option>
+        <option>HEIGHT</option>
+        <option>LIKES</option>
+        <option>DATE</option>
       </select>
 
       {favList <= 0 ? (

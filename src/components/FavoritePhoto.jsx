@@ -3,7 +3,7 @@ import { saveAs } from "file-saver";
 import { useDispatch } from "react-redux";
 import { deletePhoto } from "../features/favoritePhotos/favoritePhotosSlice";
 import { PhotoModal } from "./PhotoModal";
-import { DeleteForever, Download, Edit } from "@mui/icons-material";
+import { Delete, Download, Edit } from "@mui/icons-material";
 
 export const FavoritePhoto = (photo) => {
   const donwloadImage = (URL, description) => {
@@ -19,13 +19,28 @@ export const FavoritePhoto = (photo) => {
 
   return (
     <div>
-      <img
-        src={photo.src}
-        alt={photo.description}
-        height="250"
-        width="200"
-        onClick={() => setOpenModal(true)}
-      />
+      <div className="imgAndButtons">
+        <img
+          src={photo.src}
+          alt={photo.description}
+          onClick={() => setOpenModal(true)}
+        />
+        <div>
+          <button
+            variant="outlined"
+            onClick={() => dispatch(deletePhoto({ id: photo.id }))}
+            id="buttons"
+          >
+            <Delete />
+          </button>
+          <button
+            onClick={() => donwloadImage(photo.src, photo.description)}
+            id="buttons"
+          >
+            <Download />
+          </button>
+        </div>
+      </div>
 
       {openModal ? (
         <div>
@@ -48,12 +63,6 @@ export const FavoritePhoto = (photo) => {
       <h3>H {photo.height}</h3>
       <h3>Likes {photo.likes}</h3>
       <h3>Date {photo.date}</h3>
-      <button onClick={() => donwloadImage(photo.src, photo.description)}>
-        <Download />
-      </button>
-      <button onClick={() => dispatch(deletePhoto({ id: photo.id }))}>
-        <DeleteForever />
-      </button>
     </div>
   );
 };

@@ -75,9 +75,10 @@ export const Search = () => {
                   }
                 >
                   <Favorite
-                  // onClick={()=>setInterval(() => {
-                  //   setOpenModal(true);
-                  // }, 1000)}
+                    id="buttons"
+                    // onClick={()=>setInterval(() => {
+                    //   setOpenModal(true);
+                    // }, 1000)}
                   />
                   {/* {openModal ? <AddedToFavModal /> : null}
                   Todo esto meterlo en un componente aparte por cada photo*/}
