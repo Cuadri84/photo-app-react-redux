@@ -7,32 +7,23 @@ import TextField from "@mui/material/TextField";
 export const FavoritePhotos = () => {
   const favorites = useSelector((state) => state.favorite.favoritePhotos);
 
-  const [favList, setFavlist] = useState(favorites);
+  const [selectedOrder, setSelectedOrder] = useState();
+  const [input, setInput] = useState("");
 
   function sortByH(e) {
     let type = e.target.value;
-    const sorted = [...favList].sort((a, b) =>
-      a[type] < b[type] ? 1 : b[type] < a[type] ? -1 : 0
-    );
-    setFavlist(sorted);
+    setSelectedOrder(type);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const input = e.target.search.value;
-    console.log(input);
-    let filtered;
 
-    filtered = favList.filter(
-      (search) => search.description.includes(input)
-      //si borro .includes(input) y hago una busqueda no da error y obviamente no hace el filter,pero si luego inlcuyo el.include(input hace el filter) y hago una busqueda
-    );
-
-    setFavlist(filtered);
+    setInput(input);
   };
 
   return (
-    <div>
+    <div id="favorites">
       <form onSubmit={handleSubmit} id="searchFilter">
         <TextField
           name="search"
@@ -48,19 +39,33 @@ export const FavoritePhotos = () => {
         <option selected disabled={true}>
           ORDER BY
         </option>
-        <option>WIDTH</option>
-        <option>HEIGHT</option>
-        <option>LIKES</option>
-        <option>DATE</option>
+        <option>width</option>
+        <option>height</option>
+        <option>likes</option>
+        <option>date</option>
       </select>
 
-      {favList <= 0 ? (
+      {favorites <= 0 ? (
         <h1>Go back and save the photos you like</h1>
       ) : (
         <ul>
-          {favList.map((photo) => (
-            <FavoritePhoto {...photo} key={photo.id} />
-          ))}
+          {favorites ? (
+            [...favorites]
+              .sort((a, b) =>
+                a[selectedOrder] < b[selectedOrder]
+                  ? 1
+                  : b[selectedOrder] < a[selectedOrder]
+                  ? -1
+                  : 0
+              )
+
+              .filter((search) =>
+                search.description ? search.description.includes(input) : false
+              )
+              .map((photo) => <FavoritePhoto {...photo} key={photo.id} />)
+          ) : (
+            <li></li>
+          )}
         </ul>
       )}
     </div>

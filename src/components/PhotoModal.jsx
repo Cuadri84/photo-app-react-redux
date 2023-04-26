@@ -25,7 +25,7 @@ export const PhotoModal = (photo) => {
 
   return (
     <>
-      <img src={photo.src} alt={photo.description} height="550" width="500" />
+      <img src={photo.src} alt={photo.description} height="150" width="100" />
       {photo.description !== null ? (
         <div>
           <textarea value={newDescription} onChange={handleChange}>
