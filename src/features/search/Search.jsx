@@ -37,59 +37,65 @@ export const Search = () => {
         <div>LOADING</div>
       ) : (
         <>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id="searchFilter">
             <TextField
               name="search"
               placeholder="Search Images..."
               variant="standard"
+              InputProps={{ disableUnderline: true }}
             />
-            <button type="submit">
+            <button type="submit" id="searchIcon">
               <SearchIcon />
             </button>
           </form>
-          {/* <SearchBar onClick={handleSubmit} /> */}
           <ul>
             {photos.map((photo) => (
-              <div key={photo.id}>
-                <img
-                  key={photo.id}
-                  src={photo.urls.regular}
-                  alt={photo.alt_description}
-                  height="250"
-                  width="200"
-                ></img>
-                <h1>{photo.alt_description}</h1>
-                <button
-                  onClick={() =>
-                    dispatch(
-                      addPhoto({
-                        id: photo.id,
-                        description: photo.alt_description,
-                        src: photo.urls.regular,
-                        likes: photo.likes,
-                        width: photo.width,
-                        height: photo.height,
-                        date: date,
-                      })
-                    )
-                  }
-                >
-                  <Favorite
-                    id="buttons"
-                    // onClick={()=>setInterval(() => {
-                    //   setOpenModal(true);
-                    // }, 1000)}
-                  />
-                  {/* {openModal ? <AddedToFavModal /> : null}
+              <div className="favoritePhoto">
+                <div key={photo.id} className="imgAndButtons">
+                  <img
+                    key={photo.id}
+                    src={photo.urls.regular}
+                    alt={photo.alt_description}
+                    height="250"
+                    width="200"
+                  ></img>
+                  <div className="divButtonsHome">
+                    <button
+                      id="buttons"
+                      onClick={() =>
+                        dispatch(
+                          addPhoto({
+                            id: photo.id,
+                            description: photo.alt_description,
+                            src: photo.urls.regular,
+                            likes: photo.likes,
+                            width: photo.width,
+                            height: photo.height,
+                            date: date,
+                          })
+                        )
+                      }
+                    >
+                      <Favorite
+                        id="buttons"
+                        // onClick={()=>setInterval(() => {
+                        //   setOpenModal(true);
+                        // }, 1000)}
+                      />
+                      {/* {openModal ? <AddedToFavModal /> : null}
                   Todo esto meterlo en un componente aparte por cada photo*/}
-                </button>
-                <button
-                  onClick={() =>
-                    donwloadImage(photo.urls.regular, photo.alt_description)
-                  }
-                >
-                  <Download />
-                </button>
+                    </button>
+                    <button
+                      id="buttons"
+                      onClick={() =>
+                        donwloadImage(photo.urls.regular, photo.alt_description)
+                      }
+                    >
+                      <Download />
+                    </button>
+                  </div>
+                </div>
+                <h2 id="data">{photo.alt_description}</h2>
               </div>
             ))}
           </ul>

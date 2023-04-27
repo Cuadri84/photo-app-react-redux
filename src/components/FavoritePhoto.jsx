@@ -47,12 +47,13 @@ export const FavoritePhoto = (photo) => {
       </div>
 
       {openModal ? (
-        <div id="overlay" onClick={() => setOpenModal(false)}>
+        <div id="overlay">
           <div id="modal">
             <img
               src={cancelModal}
               onClick={() => setOpenModal(false)}
               alt="cancel modal button"
+              id="cancelModal"
             ></img>
             <PhotoModal {...photo} />
           </div>
@@ -62,9 +63,7 @@ export const FavoritePhoto = (photo) => {
       <div id="data">
         {photo.description !== null ? (
           <>
-            <h2 onClick={() => setOpenModal(true)}>
-              {capitalizeFirst(photo.description)}
-            </h2>
+            <h2>{capitalizeFirst(photo.description)}</h2>
           </>
         ) : (
           <br />

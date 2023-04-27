@@ -82,16 +82,25 @@ header {
 }
 .imgAndButtons {
   position: relative;
+  display: flex;
+  width: 200px;
+  margin-bottom: 180px;
   & img {
+    object-fit: cover;
+    position: absolute;
     border-radius: 30px;
+    left: -15px;
     width: 220px;
     height: 200px;
   }
   & div {
-    position: absolute;
+    position: relative;
     width: 110px;
-    bottom: 10px;
-    left: 190px;
+    top: 165px;
+    left: 50px;
+  }
+  & .divButtonsHome {
+    left: 65px;
   }
 }
 
@@ -106,7 +115,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: start;
+  padding: 0 50px;
 }
+
+//modal
 
 #modal {
   display: flex;
@@ -126,4 +138,31 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9;
+}
+
+#cancelModal {
+  width: 70px;
+  height: 70px;
+}
+#imageModal {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
+#textarea {
+  border-style: none;
+  border-color: Transparent;
+  overflow: hidden;
+  width: 150px;
+  height: 30px;
+  resize: none;
+  font-size: 25px;
+  font-weight: 600;
+}
+#saveButton {
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  padding: 0 2px;
 }

@@ -77,17 +77,27 @@ header #goBackFav {
 
 .imgAndButtons {
   position: relative;
+  display: flex;
+  width: 200px;
+  margin-bottom: 180px;
 }
 .imgAndButtons img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
   border-radius: 30px;
+  left: -15px;
   width: 220px;
   height: 200px;
 }
 .imgAndButtons div {
-  position: absolute;
+  position: relative;
   width: 110px;
-  bottom: 10px;
-  left: 190px;
+  top: 165px;
+  left: 50px;
+}
+.imgAndButtons .divButtonsHome {
+  left: 65px;
 }
 
 #buttons {
@@ -101,6 +111,7 @@ header #goBackFav {
   display: flex;
   flex-direction: column;
   align-items: start;
+  padding: 0 50px;
 }
 
 #modal {
@@ -122,4 +133,35 @@ header #goBackFav {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9;
+}
+
+#cancelModal {
+  width: 70px;
+  height: 70px;
+}
+
+#imageModal {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
+
+#textarea {
+  border-style: none;
+  border-color: Transparent;
+  overflow: hidden;
+  width: 150px;
+  height: 30px;
+  resize: none;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#saveButton {
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  padding: 0 2px;
 }/*# sourceMappingURL=styles.css.map */
