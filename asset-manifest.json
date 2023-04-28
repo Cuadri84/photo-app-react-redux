@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "//cuadri84.github.io/photo-app-react-redux/static/css/main.8fec72ed.css",
+    "main.js": "//cuadri84.github.io/photo-app-react-redux/static/js/main.299c61c3.js",
+    "index.html": "//cuadri84.github.io/photo-app-react-redux/index.html",
+    "main.8fec72ed.css.map": "//cuadri84.github.io/photo-app-react-redux/static/css/main.8fec72ed.css.map",
+    "main.299c61c3.js.map": "//cuadri84.github.io/photo-app-react-redux/static/js/main.299c61c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fec72ed.css",
+    "static/js/main.299c61c3.js"
+  ]
+}
