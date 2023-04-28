@@ -48,7 +48,7 @@ export const FavoritePhotos = () => {
       {favorites <= 0 ? (
         <h1>Go back and save the photos you like</h1>
       ) : (
-        <ul>
+        <ul id="grid">
           {favorites ? (
             [...favorites]
               .sort((a, b) =>

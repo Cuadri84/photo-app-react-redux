@@ -30,6 +30,12 @@ header #goBackFav {
   font-size: small;
 }
 
+#grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 #searchFilter {
   height: 30px;
   background-color: #e7e7e7;
@@ -37,9 +43,6 @@ header #goBackFav {
   text-indent: 2%;
   border-radius: 25px;
   margin-bottom: 25px;
-}
-#searchFilter div {
-  width: 75%;
 }
 
 #searchIcon {
@@ -70,6 +73,7 @@ header #goBackFav {
 
 .favoritePhoto {
   padding-bottom: 40px;
+  margin: 0 50px;
 }
 .favoritePhoto h2 {
   padding-bottom: 10px;
@@ -111,17 +115,7 @@ header #goBackFav {
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 0 50px;
-}
-
-#modal {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 8;
+  width: 250px;
 }
 
 #overlay {
@@ -135,6 +129,18 @@ header #goBackFav {
   z-index: 9;
 }
 
+#modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 80%;
+  height: 70%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+}
+
 #cancelModal {
   width: 70px;
   height: 70px;
@@ -143,8 +149,8 @@ header #goBackFav {
 #imageModal {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-height: 1050px;
   border-radius: 30px;
 }
 
@@ -152,8 +158,8 @@ header #goBackFav {
   border-style: none;
   border-color: Transparent;
   overflow: hidden;
-  width: 150px;
-  height: 30px;
+  width: 60%;
+  height: 150px;
   resize: none;
   font-size: 25px;
   font-weight: 600;
@@ -163,5 +169,43 @@ header #goBackFav {
   color: #000000;
   background-color: transparent;
   border: none;
+  transform: scale(2.8);
   padding: 0 2px;
+}
+
+#modalData {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 709px) {
+  header h1 {
+    font-size: 80px;
+  }
+  header #goBackFav {
+    font-size: 30px;
+  }
+  #searchFilter {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 440px;
+    padding-left: 30px;
+    margin-bottom: 30px;
+  }
+  #searchIcon {
+    padding-left: 160px;
+  }
+  #order {
+    font-size: larger;
+    padding-right: 40px;
+    background-size: 25px;
+    margin-bottom: 30px;
+  }
+  #data h2 {
+    font-size: 30px;
+  }
+  #data h4 {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -28,7 +28,7 @@ export const PhotoModal = (photo) => {
     <div>
       <img src={photo.src} alt={photo.description} id="imageModal" />
       {photo.description !== null ? (
-        <div>
+        <div id="modalData">
           <textarea
             value={newDescription}
             onChange={handleChange}

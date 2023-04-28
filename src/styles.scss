@@ -31,9 +31,14 @@ header {
   }
 }
 
-//favorites
+//PAGES
+#grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-//SEARCH FAVORITES
+//SEARCH
 
 #searchFilter {
   height: 30px;
@@ -42,9 +47,6 @@ header {
   text-indent: 2%;
   border-radius: 25px;
   margin-bottom: 25px;
-  & div {
-    width: 75%;
-  }
 }
 #searchIcon {
   color: #bdb5b5;
@@ -73,9 +75,10 @@ header {
   }
 }
 
-//Favorite photo
+//Favorite and search photo
 .favoritePhoto {
   padding-bottom: 40px;
+  margin: 0 50px;
   & h2 {
     padding-bottom: 10px;
   }
@@ -115,20 +118,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: start;
-  padding: 0 50px;
+  width: 250px;
 }
 
-//modal
-
-#modal {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 8;
-}
+//modal of the image selected
 #overlay {
   background-color: #ffffff;
   position: fixed;
@@ -139,6 +132,17 @@ header {
   transform: translate(-50%, -50%);
   z-index: 9;
 }
+#modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 80%;
+  height: 70%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8;
+}
 
 #cancelModal {
   width: 70px;
@@ -146,16 +150,17 @@ header {
 }
 #imageModal {
   object-fit: cover;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  max-height: 1050px;
+
   border-radius: 30px;
 }
 #textarea {
   border-style: none;
   border-color: Transparent;
   overflow: hidden;
-  width: 150px;
-  height: 30px;
+  width: 60%;
+  height: 150px;
   resize: none;
   font-size: 25px;
   font-weight: 600;
@@ -164,5 +169,52 @@ header {
   color: #000000;
   background-color: transparent;
   border: none;
+  transform: scale(2.8);
   padding: 0 2px;
+}
+#modalData {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 709px) {
+  //HEADER
+  header {
+    & h1 {
+      font-size: 80px;
+    }
+    & #goBackFav {
+      font-size: 30px;
+    }
+  }
+  //SEARCH
+
+  #searchFilter {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 440px;
+    padding-left: 30px;
+    margin-bottom: 30px;
+  }
+  #searchIcon {
+    padding-left: 160px;
+  }
+
+  //BOTON ORDER
+  #order {
+    font-size: larger;
+    padding-right: 40px;
+    background-size: 25px;
+    margin-bottom: 30px;
+  }
+  //PAGES
+  #data {
+    & h2 {
+      font-size: 30px;
+    }
+    & h4 {
+      font-size: 20px;
+    }
+  }
 }

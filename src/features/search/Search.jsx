@@ -4,11 +4,10 @@ import { saveAs } from "file-saver";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos } from "./SearchSlice";
 import { addPhoto } from "../favoritePhotos/favoritePhotosSlice";
+
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
-import { SearchBar } from "../../components/SearchBar";
 import { Download, Favorite } from "@mui/icons-material";
-import { AddedToFavModal } from "../../components/AddedToFavModal";
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -20,7 +19,13 @@ export const Search = () => {
     e.preventDefault();
     setInput(e.target.search.value);
   };
-  // const [openModal, setOpenModal] = useState(false);
+
+  let white = "#fff";
+  const [color, setColor] = useState(white);
+  const changeColor = () => {
+    let red = "#A02";
+    setColor(red);
+  };
 
   const date = new Date().toLocaleString();
 
@@ -48,7 +53,7 @@ export const Search = () => {
               <SearchIcon />
             </button>
           </form>
-          <ul>
+          <ul id="grid">
             {photos.map((photo) => (
               <div className="favoritePhoto">
                 <div key={photo.id} className="imgAndButtons">
@@ -78,12 +83,9 @@ export const Search = () => {
                     >
                       <Favorite
                         id="buttons"
-                        // onClick={()=>setInterval(() => {
-                        //   setOpenModal(true);
-                        // }, 1000)}
+                        style={{ color }}
+                        // onClick={changeColor}
                       />
-                      {/* {openModal ? <AddedToFavModal /> : null}
-                  Todo esto meterlo en un componente aparte por cada photo*/}
                     </button>
                     <button
                       id="buttons"

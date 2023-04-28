@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_KEY = "x-u-3JCGtffCniAJOYb3NXFUilPh6YXiFlDhNnnyyLw";
-const URL = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=10`;
+const URL = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=40`;
 
 export const getPhotos = createAsyncThunk(
   "photos/getPhotos",
