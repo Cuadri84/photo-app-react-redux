@@ -3,7 +3,7 @@ import { saveAs } from "file-saver";
 import { useDispatch } from "react-redux";
 import { deletePhoto } from "../features/favoritePhotos/favoritePhotosSlice";
 import { PhotoModal } from "./PhotoModal";
-import { Delete, Download, Edit } from "@mui/icons-material";
+import { Delete, Download, Edit, Done, Clear } from "@mui/icons-material";
 import cancelModal from "../assets/cancelModal.png";
 
 export const FavoritePhoto = (photo) => {
@@ -17,6 +17,19 @@ export const FavoritePhoto = (photo) => {
   };
 
   const [openModal, setOpenModal] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const deleteFav = () => {
+    setConfirmDelete(true);
+  };
+
+  const deleteTrue = () => {
+    setConfirmDelete(false);
+    dispatch(deletePhoto({ id: photo.id }));
+  };
+
+  const deleteFalse = () => {
+    setConfirmDelete(false);
+  };
 
   return (
     <div className="favoritePhoto">
@@ -30,13 +43,10 @@ export const FavoritePhoto = (photo) => {
           <button id="buttons">
             <Edit onClick={() => setOpenModal(true)} />
           </button>
-          <button
-            variant="outlined"
-            onClick={() => dispatch(deletePhoto({ id: photo.id }))}
-            id="buttons"
-          >
+          <button variant="outlined" onClick={() => deleteFav()} id="buttons">
             <Delete />
           </button>
+
           <button
             onClick={() => donwloadImage(photo.src, photo.description)}
             id="buttons"
@@ -45,7 +55,22 @@ export const FavoritePhoto = (photo) => {
           </button>
         </div>
       </div>
+      {confirmDelete && (
+        <div className="deleteModal">
+          <h3>DELETE IMAGE</h3>
 
+          <div>
+            <Done
+              onClick={() => deleteTrue()}
+              sx={{ color: "#6EC7B3", fontSize: 60 }}
+            />
+            <Clear
+              onClick={() => deleteFalse()}
+              sx={{ color: "#DC2121", fontSize: 60 }}
+            />
+          </div>
+        </div>
+      )}
       {openModal ? (
         <div id="overlay">
           <div id="modal">
