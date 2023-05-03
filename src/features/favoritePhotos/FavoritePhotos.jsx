@@ -29,6 +29,7 @@ export const FavoritePhotos = () => {
           name="search"
           placeholder="Search Images..."
           variant="standard"
+          autoComplete="off"
           InputProps={{ disableUnderline: true }}
         />
         <button type="submit" id="searchIcon">

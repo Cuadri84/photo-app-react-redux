@@ -17,6 +17,9 @@ header {
   padding-bottom: 110px;
   position: fixed;
   background-color: #ffffff;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9;
 }
 header #photoApp {
@@ -88,7 +91,7 @@ header #goBackFav {
 }
 
 .favoritePhoto {
-  padding-bottom: 40px;
+  padding-bottom: 80px;
   margin: 0 50px;
 }
 .favoritePhoto h2 {
@@ -194,9 +197,15 @@ header #goBackFav {
   justify-content: space-between;
 }
 
+#addedModal {
+  height: 15px;
+  margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 709px) {
   header {
     padding-bottom: 150px;
+    top: 160px;
   }
   header h1 {
     font-size: 80px;
