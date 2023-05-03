@@ -13,8 +13,11 @@ body {
 
 header {
   width: 100%;
-  margin-bottom: 25px;
-  margin-top: 15px;
+  padding-top: 30px;
+  padding-bottom: 110px;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 9;
 }
 header #photoApp {
   color: #75099b;
@@ -34,15 +37,23 @@ header #goBackFav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 230px;
 }
 
 #searchFilter {
   height: 30px;
   background-color: #e7e7e7;
   width: 240px;
-  text-indent: 2%;
+  padding-left: 10px;
   border-radius: 25px;
   margin-bottom: 25px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 130px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 #searchIcon {
@@ -53,6 +64,11 @@ header #goBackFav {
 }
 
 #order {
+  position: fixed;
+  z-index: 10;
+  top: 180px;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #a39898;
   margin-bottom: 15px;
   text-decoration: none;
@@ -126,7 +142,7 @@ header #goBackFav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9;
+  z-index: 11;
 }
 
 #modal {
@@ -138,7 +154,7 @@ header #goBackFav {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 8;
+  z-index: 12;
 }
 
 #cancelModal {
@@ -179,15 +195,22 @@ header #goBackFav {
 }
 
 @media only screen and (min-width: 709px) {
+  header {
+    padding-bottom: 150px;
+  }
   header h1 {
     font-size: 80px;
   }
   header #goBackFav {
     font-size: 30px;
   }
+  #grid {
+    margin-top: 380px;
+  }
   #searchFilter {
     display: flex;
     align-items: center;
+    margin-top: 110px;
     height: 50px;
     width: 440px;
     padding-left: 30px;
@@ -201,6 +224,7 @@ header #goBackFav {
     padding-right: 40px;
     background-size: 25px;
     margin-bottom: 30px;
+    margin-top: 130px;
   }
   #data h2 {
     font-size: 30px;
