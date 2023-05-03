@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { editDescription } from "../features/favoritePhotos/favoritePhotosSlice";
 import { useDispatch } from "react-redux";
-import { Save } from "@mui/icons-material";
+import { Edit, Save } from "@mui/icons-material";
 
 export const PhotoModal = (photo) => {
   const dispatch = useDispatch();
+  const [modalButton, setModalButton] = useState(false);
 
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -13,6 +14,7 @@ export const PhotoModal = (photo) => {
   const [newDescription, setNewDescription] = useState(photo.description);
   const handleChange = ({ target }) => {
     setNewDescription(target.value);
+    setModalButton(true);
   };
 
   const saveNewDescription = () => {
@@ -36,9 +38,15 @@ export const PhotoModal = (photo) => {
           >
             <h2> {capitalizeFirst(photo.description)}</h2>
           </textarea>
-          <button onClick={saveNewDescription} id="saveButton">
-            <Save />
-          </button>
+          {modalButton ? (
+            <button onClick={saveNewDescription} id="saveButton">
+              <Save />
+            </button>
+          ) : (
+            <button id="saveButton">
+              <Edit />
+            </button>
+          )}
         </div>
       ) : (
         <br />
