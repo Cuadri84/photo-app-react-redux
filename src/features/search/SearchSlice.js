@@ -15,7 +15,7 @@ export const getPhotos = createAsyncThunk(
         `https://api.unsplash.com/search/photos?query=${searchTerm}&client_id=${API_KEY}&coutn=10`
       );
       const data = await response.json();
-      console.log(`buscado ${data}`);
+      console.log(`Searched ${data}`);
       return data.results;
     }
   }
