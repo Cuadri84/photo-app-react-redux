@@ -11,6 +11,11 @@ body {
   text-align: center;
 }
 
+#goBack {
+  margin-top: 500px;
+  font-size: 40px;
+}
+
 header {
   width: 100%;
   padding-top: 30px;

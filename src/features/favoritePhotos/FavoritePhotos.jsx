@@ -47,7 +47,7 @@ export const FavoritePhotos = () => {
       </select>
 
       {favorites <= 0 ? (
-        <h1>Go back and save the photos you like</h1>
+        <h1 id="goBack">Go back and save the photos you like</h1>
       ) : (
         <ul id="grid">
           {favorites ? (
