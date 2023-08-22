@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { editDescription } from "../features/favoritePhotos/favoritePhotosSlice";
 import { useDispatch } from "react-redux";
 import { Edit, Save } from "@mui/icons-material";
+import Swal from "sweetalert2";
 
 export const PhotoModal = (photo) => {
   const dispatch = useDispatch();
@@ -24,6 +25,14 @@ export const PhotoModal = (photo) => {
         description: newDescription,
       })
     );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "new description saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    setModalButton(false);
   };
 
   return (
